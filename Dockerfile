@@ -1,4 +1,4 @@
-FROM ubuntu:wily
+FROM debian:jessie
 MAINTAINER Jan-Simon Moeller <dl9pf@gmx.de>
 
 # Install packages
