@@ -2,11 +2,9 @@ FROM fedora:23
 MAINTAINER Jan-Simon Moeller <dl9pf@gmx.de>
 
 # Install packages
-RUN dnf update && dnf upgrade
-RUN dnf install gawk make wget tar bzip2 gzip python unzip perl patch \
-     diffutils diffstat git cpp gcc gcc-c++ glibc-devel texinfo chrpath \
-     ccache perl-Data-Dumper perl-Text-ParseWords perl-Thread-Queue socat \
-     findutils which SDL-devel xterm
+RUN zypper ref && zypper -v dup
+RUN sudo zypper install python gcc gcc-c++ git chrpath make wget python-xml \
+     diffstat makeinfo python-curses patch socat libSDL-devel xterm mc cpio file
 RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config && sed -i "s/PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 
