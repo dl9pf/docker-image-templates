@@ -1,9 +1,12 @@
-FROM ubuntu:trusty
+FROM fedora:23
 MAINTAINER Jan-Simon Moeller <dl9pf@gmx.de>
 
 # Install packages
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y -u dist-upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install openssh-server pwgen
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm file cpio default-jre
+RUN dnf update && dnf upgrade
+RUN dnf install gawk make wget tar bzip2 gzip python unzip perl patch \
+     diffutils diffstat git cpp gcc gcc-c++ glibc-devel texinfo chrpath \
+     ccache perl-Data-Dumper perl-Text-ParseWords perl-Thread-Queue socat \
+     findutils which SDL-devel xterm
 RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config && sed -i "s/PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 
