@@ -1,4 +1,4 @@
-FROM fedora:23
+FROM opensuse:leap
 MAINTAINER Jan-Simon Moeller <dl9pf@gmx.de>
 
 # Install packages
