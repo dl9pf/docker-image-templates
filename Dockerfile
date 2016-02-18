@@ -13,5 +13,13 @@ RUN chmod +x /*.sh
 
 ENV AUTHORIZED_KEYS **None**
 
+# Set user jenkins to the image
+RUN adduser --quiet jenkins && echo "jenkins:jenkinspass" | chpasswd
+
+# Standard SSH port
 EXPOSE 22
-CMD ["bash"]
+
+CMD ["/usr/sbin/sshd", "-D"]
+
+#EXPOSE 22
+#CMD ["bash"]
