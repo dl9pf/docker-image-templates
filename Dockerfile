@@ -2,8 +2,8 @@ FROM fedora:23
 MAINTAINER Jan-Simon Moeller <dl9pf@gmx.de>
 
 # Install packages
-RUN dnf update && dnf upgrade
-RUN dnf install gawk make wget tar bzip2 gzip python unzip perl patch \
+RUN dnf update && dnf -y upgrade 
+RUN dnf -y install gawk make wget tar bzip2 gzip python unzip perl patch \
      diffutils diffstat git cpp gcc gcc-c++ glibc-devel texinfo chrpath \
      ccache perl-Data-Dumper perl-Text-ParseWords perl-Thread-Queue socat \
      findutils which SDL-devel xterm
