@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:wily
 MAINTAINER Jan-Simon Moeller <dl9pf@gmx.de>
 
 # Install packages
