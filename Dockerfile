@@ -3,7 +3,7 @@ MAINTAINER Jan-Simon Moeller <dl9pf@gmx.de>
 
 # Install packages
 RUN zypper ref && zypper --non-interactive -v dup
-RUN sudo zypper --non-interactive -y install python gcc gcc-c++ git chrpath make wget python-xml \
+RUN zypper --non-interactive -y install python gcc gcc-c++ git chrpath make wget python-xml \
      diffstat makeinfo python-curses patch socat libSDL-devel xterm mc cpio file
 RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config && sed -i "s/PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
